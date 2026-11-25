@@ -244,22 +244,22 @@ const ResultScreen = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="flex h-screen items-center justify-center">
-          <div className="my-card fixed flex w-[90vw] max-w-6xl flex-col overflow-hidden rounded-3xl bg-white pb-14 pl-10 pr-5 pt-10 shadow-lg dark:bg-gray-800 md:w-4/5 lg:w-3/5">
+        <div className="flex min-h-screen items-center justify-center p-2 sm:p-0">
+          <div className="my-card relative flex max-h-[92vh] w-[94vw] max-w-6xl flex-col overflow-y-auto rounded-3xl bg-white px-4 py-6 shadow-lg dark:bg-gray-800 sm:pb-14 sm:pl-10 sm:pr-5 sm:pt-10 md:w-4/5 lg:w-3/5">
             <div className="text-center font-sans text-xl font-normal text-gray-900 dark:text-gray-400 md:text-2xl">
               {`${currentDictInfo.name} ${isReviewMode ? '错题复习' : '第' + (currentChapter + 1) + '章'}`}
             </div>
             <button className="absolute right-7 top-5" onClick={exitButtonHandler}>
               <IconX className="text-gray-400" />
             </button>
-            <div className="mt-10 flex flex-row gap-2 overflow-hidden">
-              <div className="flex flex-shrink-0 flex-grow-0 flex-col gap-3 px-4 sm:px-1 md:px-2 lg:px-4">
+            <div className="mt-6 flex flex-col gap-4 overflow-hidden sm:mt-10 sm:flex-row sm:gap-2">
+              <div className="flex flex-shrink-0 flex-grow-0 flex-row justify-around gap-2 px-1 sm:flex-col sm:gap-3 sm:px-1 md:px-2 lg:px-4">
                 <RemarkRing remark={`${state.timerData.accuracy}%`} caption="正确率" percentage={state.timerData.accuracy} />
                 <RemarkRing remark={timeString} caption="章节耗时" />
                 <RemarkRing remark={state.timerData.wpm + ''} caption="WPM" />
               </div>
-              <div className="z-10 ml-6 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700">
-                <div className="customized-scrollbar z-20 ml-8 mr-1 flex h-80 flex-row flex-wrap content-start gap-4 overflow-y-auto overflow-x-hidden pr-7 pt-9">
+              <div className="z-10 flex-1 overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700 sm:ml-6">
+                <div className="customized-scrollbar z-20 ml-4 mr-1 flex max-h-60 flex-row flex-wrap content-start gap-3 overflow-y-auto overflow-x-hidden pr-4 pt-5 sm:ml-8 sm:h-80 sm:max-h-none sm:gap-4 sm:pr-7 sm:pt-9">
                   {wrongWords.map((word, index) => (
                     <WordChip key={`${index}-${word.name}`} word={word} />
                   ))}
