@@ -1,0 +1,8 @@
+{
+  "appId": "com.qwertylearner.app",
+  "appName": "Qwerty Learner",
+  "webDir": "build",
+  "server": {
+    "androidScheme": "https"
+  }
+}
